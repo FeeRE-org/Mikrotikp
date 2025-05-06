@@ -293,10 +293,7 @@ def patch_squashfs(path,key_dict):
                     if _data != data:
                         open(file,'wb').write(_data)
                 url_dict = {
-                    os.environ['MIKRO_LICENCE_URL'].encode():os.environ['CUSTOM_LICENCE_URL'].encode(),
-                    os.environ['MIKRO_UPGRADE_URL'].encode():os.environ['CUSTOM_UPGRADE_URL'].encode(),
-                    os.environ['MIKRO_CLOUD_URL'].encode():os.environ['CUSTOM_CLOUD_URL'].encode(),
-                    os.environ['MIKRO_CLOUD_PUBLIC_KEY'].encode():os.environ['CUSTOM_CLOUD_PUBLIC_KEY'].encode(),
+                    
                 }
                 data = open(file,'rb').read()
                 for old_url,new_url in url_dict.items():
@@ -307,7 +304,7 @@ def patch_squashfs(path,key_dict):
                         
                 if os.path.split(file)[1] == 'licupgr':
                     url_dict = {
-                        os.environ['MIKRO_RENEW_URL'].encode():os.environ['CUSTOM_RENEW_URL'].encode(),
+                        
                     }
                     for old_url,new_url in url_dict.items():
                         if old_url in data:
